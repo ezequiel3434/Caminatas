@@ -21,7 +21,9 @@ class ViewController: UIViewController {
     
     var managedContext: NSManagedObjectContext!
     
-    var caminatas: [Date] = []
+    //var caminatas: [Date] = []
+    
+    var currentPerson: Person?
     
     
     
@@ -37,10 +39,53 @@ class ViewController: UIViewController {
         caminataTableVIew.delegate = self
         caminataTableVIew.dataSource = self
         
+        let personName = "Ezequiel"
+        let personFetch: NSFetchRequest<Person> = Person.fetchRequest()
+        personFetch.predicate = NSPredicate(format: "%K == %@", #keyPath(Person.name),personName)
+        
+        do {
+            
+ 
+            
+            let resultados = try managedContext.fetch(personFetch)
+            if resultados.count > 0 {
+                // Se ha encontrado una persona con ese nombre
+                currentPerson = resultados.first!
+            } else {
+                // NO se ha encontrado ninguan persona con ese nombre, vamos a crearla
+                currentPerson = Person(context: managedContext)
+                currentPerson?.name = personName
+                
+                try managedContext.save()
+            }
+        } catch let error as NSError{
+            debugPrint("Ups, algo salió mal: \(error.localizedDescription)")
+        }
+        
     }
 
     @IBAction func addCaminata(_ sender: Any) {
-        caminatas.append(NSDate() as Date)
+        //caminatas.append(NSDate() as Date)
+        
+        // inseertar nueva caminata
+    
+        let caminata = CadaCaminata(context: managedContext)
+        caminata.date = NSDate() as Date
+        
+        if let persona = currentPerson, let caminatas = persona.caminatas?.mutableCopy() as? NSMutableOrderedSet {
+            caminatas.add(caminata)
+            persona.caminatas = caminatas
+        }
+        
+        // salvar toda la informacion
+        
+        do {
+            try managedContext.save()
+        } catch let error as NSError {
+            debugPrint("Algo salio mal: \(error.localizedDescription)")
+        }
+        
+        
         caminataTableVIew.reloadData()
     }
     
@@ -53,12 +98,23 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        guard let caminatas = currentPerson?.caminatas else { return 1 }
+        
+               
+        
         return caminatas.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cellCaminatas", for: indexPath)
-        cell.textLabel?.text = dateFormatter.string(for: caminatas[indexPath.row])
+
+        guard let caminata = currentPerson?.caminatas?[indexPath.row] as? CadaCaminata,
+            let fechaDeCaminata = caminata.date as? Date else { return cell }
+        
+        cell.textLabel?.text = dateFormatter.string(for: fechaDeCaminata)
+        
+        
         
         return cell
     }

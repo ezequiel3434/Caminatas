@@ -15,6 +15,10 @@
 		37EAD0F424D1AC2D00081C82 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37EAD0F224D1AC2D00081C82 /* LaunchScreen.storyboard */; };
 		37EAD0FC24D1B1DE00081C82 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37EAD0FB24D1B1DE00081C82 /* CoreDataStack.swift */; };
 		37EAD0FF24D1B73C00081C82 /* caminatas.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 37EAD0FD24D1B73C00081C82 /* caminatas.xcdatamodeld */; };
+		37EAD10424D1B8CB00081C82 /* CadaCaminata+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37EAD10024D1B8CB00081C82 /* CadaCaminata+CoreDataClass.swift */; };
+		37EAD10524D1B8CB00081C82 /* CadaCaminata+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37EAD10124D1B8CB00081C82 /* CadaCaminata+CoreDataProperties.swift */; };
+		37EAD10624D1B8CB00081C82 /* Person+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37EAD10224D1B8CB00081C82 /* Person+CoreDataClass.swift */; };
+		37EAD10724D1B8CB00081C82 /* Person+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37EAD10324D1B8CB00081C82 /* Person+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +32,10 @@
 		37EAD0F524D1AC2D00081C82 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		37EAD0FB24D1B1DE00081C82 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		37EAD0FE24D1B73C00081C82 /* caminatas.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = caminatas.xcdatamodel; sourceTree = "<group>"; };
+		37EAD10024D1B8CB00081C82 /* CadaCaminata+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CadaCaminata+CoreDataClass.swift"; sourceTree = "<group>"; };
+		37EAD10124D1B8CB00081C82 /* CadaCaminata+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CadaCaminata+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		37EAD10224D1B8CB00081C82 /* Person+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Person+CoreDataClass.swift"; sourceTree = "<group>"; };
+		37EAD10324D1B8CB00081C82 /* Person+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Person+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,6 +52,10 @@
 		37EAD0DB24D1AC2C00081C82 = {
 			isa = PBXGroup;
 			children = (
+				37EAD10024D1B8CB00081C82 /* CadaCaminata+CoreDataClass.swift */,
+				37EAD10124D1B8CB00081C82 /* CadaCaminata+CoreDataProperties.swift */,
+				37EAD10224D1B8CB00081C82 /* Person+CoreDataClass.swift */,
+				37EAD10324D1B8CB00081C82 /* Person+CoreDataProperties.swift */,
 				37EAD0E624D1AC2C00081C82 /* Caminatas */,
 				37EAD0E524D1AC2C00081C82 /* Products */,
 			);
@@ -144,10 +156,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				37EAD10624D1B8CB00081C82 /* Person+CoreDataClass.swift in Sources */,
 				37EAD0EC24D1AC2C00081C82 /* ViewController.swift in Sources */,
+				37EAD10724D1B8CB00081C82 /* Person+CoreDataProperties.swift in Sources */,
 				37EAD0E824D1AC2C00081C82 /* AppDelegate.swift in Sources */,
+				37EAD10424D1B8CB00081C82 /* CadaCaminata+CoreDataClass.swift in Sources */,
 				37EAD0EA24D1AC2C00081C82 /* SceneDelegate.swift in Sources */,
 				37EAD0FC24D1B1DE00081C82 /* CoreDataStack.swift in Sources */,
+				37EAD10524D1B8CB00081C82 /* CadaCaminata+CoreDataProperties.swift in Sources */,
 				37EAD0FF24D1B73C00081C82 /* caminatas.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
