@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="16119" systemVersion="19F101" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="CadaCaminata" representedClassName="CadaCaminata" syncable="YES">
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <relationship name="persona" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Person" inverseName="caminatas" inverseEntity="Person"/>
+    </entity>
+    <entity name="Person" representedClassName="Person" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="caminatas" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CadaCaminata" inverseName="persona" inverseEntity="CadaCaminata"/>
+    </entity>
+    <elements>
+        <element name="Person" positionX="-63" positionY="-18" width="128" height="73"/>
+        <element name="CadaCaminata" positionX="-54" positionY="0" width="128" height="73"/>
+    </elements>
+</model>
