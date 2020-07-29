@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class ViewController: UIViewController {
     
@@ -18,7 +19,11 @@ class ViewController: UIViewController {
         return formatter
     }()
     
+    var managedContext: NSManagedObjectContext!
+    
     var caminatas: [Date] = []
+    
+    
     
     
     
