@@ -119,6 +119,21 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        guard let caminataAEliminar = currentPerson?.caminatas?[indexPath.row] as? CadaCaminata,
+            editingStyle == .delete else { return  }
+        
+        managedContext.delete(caminataAEliminar)
+        
+        do {
+            try managedContext.save()
+            tableView.deleteRows(at: [indexPath] , with: .automatic)
+        } catch let error as NSError {
+            debugPrint("Ups, \(error.localizedDescription)")
+        }
+        
+    }
+    
     
 }
 
